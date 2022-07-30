@@ -8,7 +8,7 @@ class Memory:
     def __init__(self):
         self.tarkov_process = False
         self.mmap_exists = self.check_for_mmap()
-        self.vmm = self.initialize_dma()
+        self.initialize_dma()
         self.process_check_timer = threading.Timer(1.0, self.check_for_process)
 
     def initialize_dma(self):
@@ -17,7 +17,7 @@ class Memory:
             self.vmm = memprocfs.Vmm(["-device", "fpga", "-mmap", "mmap.txt"])
         else:
             self.vmm = memprocfs.Vmm(["-device", "fpga"])
-        print(self.vmm)
+        print(dir(self.vmm))
         if self.vmm:
             print("initialized DMA access")
         if not self.vmm:
@@ -41,15 +41,21 @@ class Memory:
         print("todo: generate a mmap automatically for user")
 
     def check_for_process(self):
+        tarkov_process = None
         if self.tarkov_process:
             return
         if not self.vmm:
+            print(dir(self.vmm))
             print("would check for process, but no dma connection initialized")
             return
         print("checking for tarkov process")
-        tarkov_process = self.vmm.process("EscapeFromTarkov.exe")
+        try:
+            tarkov_process = self.vmm.process("EscapeFromTarkov.exe")
+        except RuntimeError:
+            print("Tarkov not running")
         if tarkov_process:
             print("found tarkov process")
             self.tarkov_process = tarkov_process
-            self.process_check_timer.stop()
+        else:
+            self.process_check_timer.start()
         return
