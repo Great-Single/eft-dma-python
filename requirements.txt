@@ -1,0 +1,3 @@
+nose
+pre-commit
+memprocfs
