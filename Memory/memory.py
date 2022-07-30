@@ -1,7 +1,8 @@
-import threading
 from os import path
 
 import memprocfs
+
+from Utils.timer import RepeatedTimer
 
 
 class Memory:
@@ -9,7 +10,7 @@ class Memory:
         self.tarkov_process = False
         self.mmap_exists = self.check_for_mmap()
         self.initialize_dma()
-        self.process_check_timer = threading.Timer(1.0, self.check_for_process)
+        self.process_check_timer = RepeatedTimer(1, self.check_for_process)
 
     def initialize_dma(self):
         print("initializing memory access over DMA")
@@ -57,5 +58,5 @@ class Memory:
             print("found tarkov process")
             self.tarkov_process = tarkov_process
         else:
-            self.process_check_timer.start()
+            self.process_check_timer.stop()
         return
