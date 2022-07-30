@@ -1,0 +1,20 @@
+{
+  "x": 3915,
+  "y": 3213,
+  "z": 0,
+  "scale": 6.95,
+  "maps": [
+    {
+      "Item1": 21,
+      "Item2": "Maps\\Interchange.png"
+    },
+    {
+      "Item1": 26,
+      "Item2": "Maps\\InterchangeFloor1.png"
+    },
+    {
+      "Item1": 31,
+      "Item2": "Maps\\InterchangeFloor2.png"
+    }
+  ]
+}

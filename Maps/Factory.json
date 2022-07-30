@@ -1,0 +1,20 @@
+{
+  "x": 1725,
+  "y": 1315,
+  "z": 0,
+  "scale": 18.25,
+  "maps": [
+    {
+      "Item1": -2,
+      "Item2": "Maps\\FactoryBelow.png"
+    },
+    {
+      "Item1": -0.8,
+      "Item2": "Maps\\Factory.png"
+    },
+    {
+      "Item1": 6.5,
+      "Item2": "Maps\\FactoryTopFloor.png"
+    }
+  ]
+}
