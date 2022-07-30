@@ -17,6 +17,7 @@ class Memory:
             self.vmm = memprocfs.Vmm(["-device", "fpga", "-mmap", "mmap.txt"])
         else:
             self.vmm = memprocfs.Vmm(["-device", "fpga"])
+        print(self.vmm)
         if self.vmm:
             print("initialized DMA access")
         if not self.vmm:
@@ -41,14 +42,14 @@ class Memory:
 
     def check_for_process(self):
         if self.tarkov_process:
-            return self.tarkov_process
+            return
         if not self.vmm:
             print("would check for process, but no dma connection initialized")
-            return False
+            return
         print("checking for tarkov process")
         tarkov_process = self.vmm.process("EscapeFromTarkov.exe")
         if tarkov_process:
             print("found tarkov process")
             self.tarkov_process = tarkov_process
             self.process_check_timer.stop()
-        return False
+        return
