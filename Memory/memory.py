@@ -57,6 +57,5 @@ class Memory:
         if tarkov_process:
             print("found tarkov process")
             self.tarkov_process = tarkov_process
-        else:
             self.process_check_timer.stop()
         return
