@@ -8,6 +8,4 @@ class OperationsManager:
     def memory_init(self):
         print("<(o.o<) welcome")
         print("initializing memory access over DMA")
-        memory = Memory()
-        print("memory", memory)
-        self.memory = memory
+        self.memory = Memory()

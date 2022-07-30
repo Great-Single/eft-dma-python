@@ -1,3 +1,3 @@
-from OperationsManager import operations_manager
+from OperationsManager.operations_manager import OperationsManager
 
-manager = operations_manager.OperationsManager()
+manager = OperationsManager()
