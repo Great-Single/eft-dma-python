@@ -7,8 +7,8 @@ import memprocfs
 class Memory:
     def __init__(self):
         self.tarkov_process = False
-        self.vmm = self.initialize_dma()
         self.mmap_exists = self.check_for_mmap()
+        self.vmm = self.initialize_dma()
 
     def initialize_dma(self):
         if self.mmap_exists:
