@@ -46,7 +46,6 @@ class Memory:
             print("would check for process, but no dma connection initialized")
             return False
         print("checking for tarkov process")
-        self.process_check_timer.start()
         tarkov_process = self.vmm.process("EscapeFromTarkov.exe")
         if tarkov_process:
             print("found tarkov process")

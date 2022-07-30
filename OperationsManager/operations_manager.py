@@ -5,4 +5,4 @@ class OperationsManager:
     def __init__(self):
         print("<(o.o <) welcome")
         self.memory = Memory()
-        self.memory.check_for_process()
+        self.memory.process_check_timer.start()
